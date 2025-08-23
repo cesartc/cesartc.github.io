@@ -148,7 +148,7 @@
     }
 
     .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:26px;background: var(--accent-dark);color: var(--text-light);padding:10px 14px;border-radius:999px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .18s ease, transform .18s cubic-bezier(.2,1,.3,1)}
-    .toast.show{opacity:0.7;pointer-events:auto;transform:translateX(-50%) translateY(-6px)}
+    .toast.show{opacity:0.6;pointer-events:auto;transform:translateX(-50%) translateY(-6px)}
 
     @media(min-width:520px){ .wrap{padding:48px;} }
   </style>
@@ -180,7 +180,7 @@
 
         <button class="btn primary" id="copyBtn" data-copy-text="LU441111774269150000" aria-label="Copiar texto al portapapeles">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M456 64H56C25.07 64 0 89.07 0 120v272c0 30.93 25.07 56 56 56h400c30.93 0 56-25.07 56-56V120c0-30.93-25.07-56-56-56zM64 208h384v48H64v-48zM120 320h64v32h-64v-32z"/></svg>
-            IBAN: LU44 1111 7742 6915 0000 | Copy
+            IBAN 
         </button>
       </nav>
 
@@ -227,7 +227,7 @@
         const text = copyBtn.getAttribute('data-copy-text') || copyBtn.textContent.trim();
         const ok = await copyText(text);
         if(ok){
-          showToast('Copied: ' + text);
+          showToast('IBAN copied');
         } else {
           showToast('Error');
         }
@@ -239,7 +239,7 @@
         touchTimer = setTimeout(async ()=>{
           const text = copyBtn.getAttribute('data-copy-text') || copyBtn.textContent.trim();
           const ok = await copyText(text);
-          showToast(ok ? ('Copied: ' + text) : 'Error');
+          showToast(ok ? ('IBAN copied.') : 'Error');
         }, 600);
       });
       copyBtn.addEventListener('touchend', ()=>{ if(touchTimer) clearTimeout(touchTimer); });
