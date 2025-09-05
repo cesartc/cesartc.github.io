@@ -194,6 +194,16 @@
 
   <script>
     (function(){
+
+    const params = new URLSearchParams(window.location.search);
+    const redirect = params.get('r');
+    if (redirect === '' || redirect === null) {
+      document.documentElement.innerHTML = '';
+      window.location.replace('https://instagram.com/littlestitch.lu');
+      return;
+    }
+
+
       const copyBtn = document.getElementById('copyBtn');
       const toast = document.getElementById('toast');
 
