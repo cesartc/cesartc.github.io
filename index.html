@@ -204,9 +204,7 @@
     }
 
     if (redirect === 'christmas2025') {
-      document.documentElement.innerHTML = `
-        <embed src="christmas2025v1.pdf" type="application/pdf" width="100%" height="100%" />
-      `;
+      window.location.replace('christmas2025v1.pdf');
       return;
     }
 
